@@ -12,7 +12,7 @@ public class Screening {
     }
 
     private Money calculateFee(int audienceCount){
-        return movie.calculateMovieFee(this).thimes(audienceCount);
+        return movie.calculateMovieFee(this).times(audienceCount);
     }
 
     public Screening(Movie movie, int sequence, LocalDateTime whenScreened){

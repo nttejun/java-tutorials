@@ -1,7 +1,5 @@
 package eaxm.object.moviesreservation;
 
-import java.beans.Customizer;
-
 public class Reservation {
     private Customer customer;
     private Screening screening;
