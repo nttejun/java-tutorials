@@ -1,15 +1,20 @@
 package eaxm.object.moviesreservation;
 
-public class PercentDiscountPolicy extends DiscountPolicy {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class PercentDiscountPolicy implements DiscountPolicy {
+    private List<DiscountCondition> conditions = new ArrayList<>();
     private double percent;
 
     public PercentDiscountPolicy(double percent, DiscountCondition ... conditions) {
-        super(conditions);
+        this.conditions = Arrays.asList(conditions);
         this.percent = percent;
     }
 
     @Override
-    protected Money getDiscountAmount(Screening screening) {
+    public Money calculateDiscountAmount(Screening screening) {
         return screening.getMovieFee().times(percent);
     }
 }

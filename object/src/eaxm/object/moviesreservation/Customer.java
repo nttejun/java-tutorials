@@ -18,6 +18,12 @@ public class Customer {
                         new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10, 0), LocalTime.of(20, 59))
                         ));
 
+        avatar.changeDiscountPolicy(new PercentDiscountPolicy(0.1,
+                new PeriodCondition(DayOfWeek.MONDAY, LocalTime.of(14, 0), LocalTime.of(16,59)),
+                new SequenceCondition(2),
+                new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10, 0), LocalTime.of(13, 59))
+        ));
+
         Movie titanic = new Movie("타이타닉",
                 Duration.ofMinutes(180),
                 Money.wons(11000),
@@ -31,6 +37,8 @@ public class Customer {
                 Duration.ofMinutes(180),
                 Money.wons(11000),
                 new NoneDiscountPolicy());
+
+
 
         System.out.println("avatar : " + avatar.getFee());
         System.out.println("titanic : " + titanic.getFee());
