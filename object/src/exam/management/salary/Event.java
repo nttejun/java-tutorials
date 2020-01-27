@@ -1,4 +1,4 @@
-package exam.management.schedule;
+package exam.management.salary;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -16,8 +16,8 @@ public class Event {
 
     public boolean isSatisfied(RecurringSchedule recurringSchedule) {
         if (from.getDayOfWeek() != recurringSchedule.getDayOfWeek() ||
-                !from.toLocalTime().equals(recurringSchedule.getFrom())) {
-            reschedule(recurringSchedule);
+                !from.toLocalTime().equals(recurringSchedule.getFrom())||
+                !duration.equals(recurringSchedule.getDuration())) {
             return false;
         }
         return true;

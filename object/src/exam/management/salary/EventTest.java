@@ -1,4 +1,4 @@
-package exam.management.schedule;
+package exam.management.salary;
 
 import org.junit.Test;
 
