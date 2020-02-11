@@ -5,7 +5,7 @@ public class Bag {
     private Invitation invitation;
     private Ticket ticket;
 
-    public Bag(long amount){
+    public Bag(long amount) {
         this(null, amount);
     }
 
@@ -14,8 +14,8 @@ public class Bag {
         this.amount = amount;
     }
 
-    public Long hold(Ticket ticket){
-        if(hasInvitation()){
+    public Long hold(Ticket ticket) {
+        if (hasInvitation()) {
             setTicket(ticket);
             return 0L;
         } else {
@@ -26,23 +26,23 @@ public class Bag {
 
     }
 
-    private boolean hasInvitation(){
+    private boolean hasInvitation() {
         return invitation != null;
     }
 
-    private boolean hasTicket(){
+    private boolean hasTicket() {
         return ticket != null;
     }
 
-    private void setTicket(Ticket ticket){
+    private void setTicket(Ticket ticket) {
         this.ticket = ticket;
     }
 
-    private void minusAmount(Long amount){
+    private void minusAmount(Long amount) {
         this.amount -= amount;
     }
 
-    private void plusAmount(Long amount){
+    private void plusAmount(Long amount) {
         this.amount += amount;
     }
 }

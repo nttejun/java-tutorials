@@ -16,8 +16,8 @@ public class DiscountCondition {
         return type;
     }
 
-    public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time){
-        if(type != DiscountConditionType.PERIOD){
+    public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time) {
+        if (type != DiscountConditionType.PERIOD) {
             throw new IllegalArgumentException();
         }
 
@@ -26,8 +26,8 @@ public class DiscountCondition {
                 this.endTime.compareTo(time) >= 0;
     }
 
-    public boolean isDiscountable(int sequence){
-        if(type != DiscountConditionType.SEQUENCE) {
+    public boolean isDiscountable(int sequence) {
+        if (type != DiscountConditionType.SEQUENCE) {
             throw new IllegalArgumentException();
         }
 
@@ -53,15 +53,15 @@ public class DiscountCondition {
     }
 
 
-    public void setDiscountConditionType(DiscountConditionType type){
+    public void setDiscountConditionType(DiscountConditionType type) {
         this.type = type;
     }
 
-    public int getSequence(){
+    public int getSequence() {
         return sequence;
     }
 
-    public void setSequence(int sequence){
+    public void setSequence(int sequence) {
         this.sequence = sequence;
     }
 
@@ -69,7 +69,7 @@ public class DiscountCondition {
         return dayOfWeek;
     }
 
-    public void setDayOfWeek(DayOfWeek dayOfWeek){
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
 
@@ -77,7 +77,7 @@ public class DiscountCondition {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime){
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
@@ -85,7 +85,7 @@ public class DiscountCondition {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime){
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 

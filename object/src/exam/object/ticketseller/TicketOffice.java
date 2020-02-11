@@ -8,7 +8,7 @@ public class TicketOffice {
     private Long amount;
     private List<Ticket> tickets = new ArrayList<>();
 
-    public TicketOffice(Long amount, Ticket ... tickets){
+    public TicketOffice(Long amount, Ticket... tickets) {
         this.amount = amount;
         this.tickets = Arrays.asList(tickets);
     }
@@ -17,15 +17,15 @@ public class TicketOffice {
         plusAmount(audience.buy(getTicket()));
     }
 
-    private Ticket getTicket(){
+    private Ticket getTicket() {
         return tickets.remove(0);
     }
 
-    private void minusAmount(Long amount){
+    private void minusAmount(Long amount) {
         this.amount -= amount;
     }
 
-    private void plusAmount(Long amount){
+    private void plusAmount(Long amount) {
         this.amount += amount;
     }
 }

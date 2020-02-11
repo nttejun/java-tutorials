@@ -1,13 +1,13 @@
 package exam.responsibility.moviereservation;
 
-public class SequenceCondition implements DiscountCondition{
+public class SequenceCondition implements DiscountCondition {
     private int sequence;
 
-    public SequenceCondition(int sequence){
+    public SequenceCondition(int sequence) {
         this.sequence = sequence;
     }
 
-    public boolean isSatisfiedBy(Screening screening){
+    public boolean isSatisfiedBy(Screening screening) {
         return sequence == screening.getSequence();
     }
 

@@ -6,7 +6,7 @@ public class Reservation {
     private Money fee;
     private int audience;
 
-    public Reservation(Customer customer, Screening screening, Money fee, int audience){
+    public Reservation(Customer customer, Screening screening, Money fee, int audience) {
         this.customer = customer;
         this.screening = screening;
         this.fee = fee;
@@ -17,7 +17,7 @@ public class Reservation {
         return customer;
     }
 
-    public void setCustomer(Customer customer){
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
@@ -25,23 +25,23 @@ public class Reservation {
         return screening;
     }
 
-    public void setScreening(Screening screening){
+    public void setScreening(Screening screening) {
         this.screening = screening;
     }
 
-    public Money getFee(){
+    public Money getFee() {
         return fee;
     }
 
-    public void setFee(Money fee){
+    public void setFee(Money fee) {
         this.fee = fee;
     }
 
-    public int getAudience(){
+    public int getAudience() {
         return audience;
     }
 
-    public void setAudience(int audience){
+    public void setAudience(int audience) {
         this.audience = audience;
     }
 }

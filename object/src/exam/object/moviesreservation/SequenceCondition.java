@@ -1,6 +1,6 @@
 package exam.object.moviesreservation;
 
-public class SequenceCondition implements DiscountCondition{
+public class SequenceCondition implements DiscountCondition {
 
     private int sequence;
 

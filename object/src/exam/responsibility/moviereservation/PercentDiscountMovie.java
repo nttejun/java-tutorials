@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class PercentDiscountMovie extends Movie {
     private double percent;
 
-    public PercentDiscountMovie(String title, Duration runningTime, Money fee, double percent, DiscountCondition... discountConditions){
+    public PercentDiscountMovie(String title, Duration runningTime, Money fee, double percent, DiscountCondition... discountConditions) {
         super(title, runningTime, fee, Arrays.asList(discountConditions));
         this.percent = percent;
     }
