@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NightlyDiscountPhone extends Phone{
+public class NightlyDiscountPhone{
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
@@ -13,8 +13,9 @@ public class NightlyDiscountPhone extends Phone{
     private List<Call> calls = new ArrayList<>();
 
     public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds) {
-        super(regularAmount, seconds);
         this.nightlyAmount = nightlyAmount;
+        this.regularAmount = regularAmount;
+        this.seconds = seconds;
     }
 
     public Money calculateFee() {
@@ -29,6 +30,6 @@ public class NightlyDiscountPhone extends Phone{
                         regularAmount.times(call.getDuration().getSeconds() / seconds.getSeconds()));
             }
         }
-        return result.minus(nightlyAmount);
+        return result;
     }
 }
