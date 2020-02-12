@@ -23,6 +23,10 @@ public class Phone {
         return result;
     }
 
+    private Money calculateCallFee(Call call){
+        return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
+    }
+
     public void call(Call call) {
         calls.add(call);
     }
