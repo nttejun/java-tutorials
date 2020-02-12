@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Phone {
+public class Phone extends AbstractPhone{
     private Money amount;
     private Duration seconds;
     private List<Call> calls = new ArrayList<>();
@@ -14,16 +14,7 @@ public class Phone {
         this.seconds = seconds;
     }
 
-    public Money calculateFee() {
-        Money result = Money.ZERO;
-
-        for (Call call : calls) {
-            result = result.plus(amount.times(call.getDuration().getSeconds() / seconds.getSeconds()));
-        }
-        return result;
-    }
-
-    private Money calculateCallFee(Call call){
+    protected Money calculateCallFee(Call call){
         return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
     }
 
