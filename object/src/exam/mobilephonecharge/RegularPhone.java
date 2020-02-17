@@ -11,4 +11,9 @@ public class RegularPhone extends Phone {
         this.amount = amount;
         this.seconds = seconds;
     }
+
+    @Override
+    protected Money calculateCallFee(Call call) {
+        return null;
+    }
 }
