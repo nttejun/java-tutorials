@@ -1,24 +1,25 @@
 package exam.mobilephonecharge;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Phone extends AbstractPhone{
-    private Money amount;
-    private Duration seconds;
+public abstract class Phone{
+    private double taxRate;
     private List<Call> calls = new ArrayList<>();
 
-    public Phone(Money amount, Duration seconds) {
-        this.amount = amount;
-        this.seconds = seconds;
+    public Phone(double taxRate) {
+        this.taxRate = taxRate;
     }
 
-    protected Money calculateCallFee(Call call){
-        return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
+    public Money calculateFee(){
+        Money result = Money.ZERO;
+
+        for(Call call : calls){
+            result = result.plus(calculateCallFee(call));
+        }
+
+        return result.plus(result.times(taxRate));
     }
 
-    public void call(Call call) {
-        calls.add(call);
-    }
+    protected abstract Money calculateCallFee(Call call);
 }
