@@ -6,17 +6,17 @@ import org.junit.Test;
 public class OneDimensionArray {
 
   @Test
-  public void initArrayCase1() {
-    int arraySample1[];
-    arraySample1 = new int[]{1, 2, 3, 4, 5};
-    Assert.assertEquals(4, arraySample1[3]);
-    Assert.assertEquals(5, arraySample1[4]);
+  public void initIntArrayCase1() {
+    int intArray[];
+    intArray = new int[]{1, 2, 3, 4, 5};
+    Assert.assertEquals(4, intArray[3]);
+    Assert.assertEquals(5, intArray[4]);
   }
 
   @Test
-  public void initArrayCase2() {
-    int[] arraySample1 = {1, 2, 3, 4, 5};
-    Assert.assertEquals(4, arraySample1[3]);
-    Assert.assertEquals(5, arraySample1[4]);
+  public void initIntArrayCase2() {
+    int[] intArray = {1, 2, 3, 4, 5};
+    Assert.assertEquals(4, intArray[3]);
+    Assert.assertEquals(5, intArray[4]);
   }
 }
