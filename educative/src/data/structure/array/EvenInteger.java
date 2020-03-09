@@ -3,7 +3,7 @@ package data.structure.array;
 import org.junit.Assert;
 import org.junit.Test;
 
-// 
+// 반복문이 2회 수행되므로 2n 시간복잡도 -> 계수를 제외하면 -> 시간복잡도 = O(n)
 public class EvenInteger {
 
   public int[] removeEvenNumber(int[] arr) {
