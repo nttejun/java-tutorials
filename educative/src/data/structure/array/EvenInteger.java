@@ -5,36 +5,38 @@ import org.junit.Test;
 
 // 반복문이 2회 수행되므로 2n 시간복잡도 -> 계수를 제외하면 -> 시간복잡도 = O(n)
 public class EvenInteger {
-
   public int[] removeEvenNumber(int[] arr) {
+    return getRemovedArr(arr, createEmptyArr(arr));
+  }
 
-    int removedArrayIndex = 0;
-
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] % 2 != 0) {
-        removedArrayIndex++;
+  private int[] createEmptyArr(int[] arr) {
+    int removedArrIdx = 0;
+    for (int i : arr) {
+      if (i % 2 != 0) {
+        removedArrIdx++;
       }
     }
+    return new int[removedArrIdx];
+  }
 
-    int[] removedArray = new int[removedArrayIndex];
-    int index = 0;
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] % 2 != 0) {
-        removedArray[index] = arr[i];
-        index++;
+  private int[] getRemovedArr(int[] arr, int[] removedEvenArr) {
+    int idx = 0;
+    for (int i : arr) {
+      if (i % 2 != 0) {
+        removedEvenArr[idx] = i;
+        idx++;
       }
     }
-    return removedArray;
+    return removedEvenArr;
   }
 
   public String intArrayToString(int[] arr){
-    String result  = "";
+    String res  = "";
     for(int value : arr){
-      result = result + value;
+      res = res + value;
     }
-    return result;
+    return res;
   }
-
 
   @Test
   public void removeAll() {
