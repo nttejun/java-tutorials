@@ -3,7 +3,7 @@ package data.structure.array;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MergeTwoSortedArrays {
+public class MergeTwoUnsortedArrays {
 
   public int[] mergeArray(int[] aArr, int[] bArr){
     int[] result = new int[aArr.length + bArr.length];
@@ -32,7 +32,7 @@ public class MergeTwoSortedArrays {
   }
 
   @Test
-  public void mergeTwoSortedArrays(){
+  public void mergeTwoUnsortedArrays(){
     int[] aArr = {3,3,9,4,7};
     int[] bArr = {7,5,0,1};
     int[] res = mergeArray(aArr, bArr);
