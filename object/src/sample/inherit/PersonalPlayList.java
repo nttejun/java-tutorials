@@ -1,8 +1,14 @@
 package sample.inherit;
 
-public class PersonalPlayList extends Playlist{
+public class PersonalPlayList {
+    private Playlist playList = new Playlist();
+
+    public void append(Song song){
+        playList.append(song);
+    }
+
     public void remove(Song song){
-        getTracks().remove(song);
-        getSingers().remove(song.getSinger());
+        playList.getTracks().remove(song);
+        playList.getSingers().remove(song.getSinger());
     }
 }
