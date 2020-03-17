@@ -33,11 +33,9 @@ public class RearrangePositiveNegativeValues {
     int positiveIdx = minIdx;
     for (int i : arr) {
       if (i < 0) {
-        newArray[negativeIdx] = i;
-        negativeIdx++;
+        newArray[negativeIdx++] = i;
       } else {
-        newArray[positiveIdx] = i;
-        positiveIdx++;
+        newArray[positiveIdx++] = i;
       }
     }
     return newArray;
