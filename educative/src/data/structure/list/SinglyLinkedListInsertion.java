@@ -65,6 +65,35 @@ public class SinglyLinkedListInsertion<T> {
     }
   }
 
+  private boolean searchCase1(T i) {
+    Node node = this.headNode;
+    while(node != null && !node.data.equals(i)){
+      node = node.nextNode;
+    }
+
+    if(node.data == i){
+      return true;
+    }
+
+    return false;
+  }
+
+  private boolean searchCase2(T i) {
+    Node node = this.headNode;
+    while(node != null){
+      if(node.data.equals(i)){
+        return true;
+      }
+      node = node.nextNode;
+    }
+
+    if(node.data == i){
+      return true;
+    }
+
+    return false;
+  }
+
   @Test
   public void insert(){
     SinglyLinkedListInsertion<Integer> singlyLinkedListInsertion = new SinglyLinkedListInsertion<Integer>();
@@ -84,6 +113,18 @@ public class SinglyLinkedListInsertion<T> {
     System.out.println(result);
   }
 
+  @Test
+  public void search(){
+    SinglyLinkedListInsertion<Integer> singlyLinkedListInsertion = new SinglyLinkedListInsertion<Integer>();
+    for (int i = 1; i <= 10; i++) {
+      singlyLinkedListInsertion.insertAtEnd(i); // inserting value at the tail of the list
+    }
+    boolean resultCase1 = singlyLinkedListInsertion.searchCase1(6);
+    System.out.println(resultCase1);
+    boolean resultCase2 = singlyLinkedListInsertion.searchCase2(6);
+    System.out.println(resultCase2);
+  }
+
   public String printResult(){
     String printReseult = "";
 
@@ -100,5 +141,4 @@ public class SinglyLinkedListInsertion<T> {
     }
     return printReseult;
   }
-
 }
