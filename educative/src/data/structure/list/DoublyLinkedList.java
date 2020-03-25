@@ -68,6 +68,7 @@ public class DoublyLinkedList<T> {
     if(headNode.data.equals(data)){
       headNode = headNode.nextNode;
       headNode.prevNode = null;
+      size--;
       return true;
     }
 
@@ -83,6 +84,7 @@ public class DoublyLinkedList<T> {
       afterNode.prevNode = node.prevNode;
       Node beforeNode = node.prevNode;
       beforeNode.nextNode = node.nextNode;
+      size--;
       return true;
     }
     return false;
