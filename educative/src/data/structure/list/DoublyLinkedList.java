@@ -108,6 +108,10 @@ public class DoublyLinkedList<T> {
     return false;
   }
 
+  public int lengthList() {
+    return size;
+  }
+
   @Test
   public void createList(){
     DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
@@ -130,11 +134,20 @@ public class DoublyLinkedList<T> {
   }
 
   @Test
-  public void deleteValue(){
+  public void deleteValue() {
+    DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
+    for (int i = 0; i < 10; i++) {
+      dll.insertHead(i);
+    }
+    Assert.assertEquals(true, dll.deleteValue(3));
+  }
+
+  @Test
+  public void length() {
     DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
     for(int i = 0; i < 10; i++){
       dll.insertHead(i);
     }
-    Assert.assertEquals(true, dll.deleteValue(3));
+    Assert.assertEquals(10, dll.lengthList());
   }
 }
