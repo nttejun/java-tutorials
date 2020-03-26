@@ -11,28 +11,39 @@ public class DoublyLinkedList<T> {
   }
 
   public Node headNode;
+  public Node tailNode;
   public int size;
 
   public DoublyLinkedList(){
     this.size = 0;
     this.headNode = null;
-
+    this.tailNode = null;
   }
 
   private boolean isEmpty() {
-    if(this.headNode == null){
+    if(this.headNode == null && tailNode == null){
       return true;
     }
     return false;
   }
 
+  public Node getHeadNode(){
+    return headNode;
+  }
+
+  public Node getTailNode(){
+    return tailNode;
+  }
+
   private void insertHead(T i) {
     Node node = new Node();
-    node.prevNode = null;
     node.data = i;
     node.nextNode = this.headNode;
-    if (headNode != null) {
+    node.prevNode = null;
+    if (!isEmpty()) {
       headNode.prevNode = node;
+    } else {
+      tailNode = node;
     }
     this.headNode = node;
     size++;
@@ -80,6 +91,13 @@ public class DoublyLinkedList<T> {
     }
 
     if(node.data.equals(data)){
+      if(node == tailNode){
+        if(node.prevNode == null){
+          tailNode = null;
+        } else {
+          tailNode = node.prevNode;
+        }
+      }
       Node afterNode = node.nextNode;
       afterNode.prevNode = node.prevNode;
       Node beforeNode = node.prevNode;
