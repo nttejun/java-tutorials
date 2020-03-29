@@ -104,24 +104,17 @@ public class SinglyLinkedListNthFromEnd<T> {
 
   public void printList() {
     if (isEmpty()) {
-      System.out.println("List is Empty!");
       return;
     }
 
     Node temp = headNode;
-    System.out.print("List : ");
 
     while (temp.nextNode != null) {
-      System.out.print(temp.data.toString() + " -> ");
       temp = temp.nextNode;
     }
-
-    System.out.println(temp.data.toString() + " -> null");
   }
 
-  //Searches a value in the given list.
   public boolean searchNode(T data) {
-    //Start from first element
     Node currentNode = this.headNode;
 
     //Traverse the list till you reach end
@@ -201,19 +194,56 @@ public class SinglyLinkedListNthFromEnd<T> {
       node = node.nextNode;
       mapIndex++;
     }
+  }
 
-    System.out.println("RESULT : " + map.get(nth));
+  private <T> Object nthElementFromEnd(SinglyLinkedListNthFromEnd<T> nthFromEnd, int n) {
 
+    SinglyLinkedListNthFromEnd<T>.Node current = nthFromEnd.getHeadNode();
+    n = nthFromEnd.getSize() - n + 1;
+
+    if (size < n || size == 0) {
+      return null;
+    }
+
+    int count = 1;
+    while (current != null) {
+      if (count == n) {
+        return current.data;
+      }
+      count++;
+      current = current.nextNode;
+    }
+    return null;
   }
 
   @Test
   public void nthFromEndCase() {
     SinglyLinkedListNthFromEnd<Integer> nthFromEnd = new SinglyLinkedListNthFromEnd<>();
 
-    for(int i=0; i<8; i++){
+    for (int i = 0; i < 8; i++) {
       nthFromEnd.insertAtHead(i);
     }
-
     nthFromEnd.getNthNodeFromEnd(3);
   }
+
+  @Test
+  public void nthFromEndOtherCase1() {
+    SinglyLinkedListNthFromEnd<Integer> nthFromEnd = new SinglyLinkedListNthFromEnd<>();
+    for (int i = 0; i < 14; i++) {
+      nthFromEnd.insertAtHead(i);
+    }
+    nthFromEnd.printList();
+    Assert.assertEquals(2, nthFromEnd.nthElementFromEnd(nthFromEnd, 3));
+    Assert.assertEquals(9, nthFromEnd.nthElementFromEnd(nthFromEnd, 10));
+  }
+
+  @Test
+  public void nthFromEndOtherCase2() {
+    SinglyLinkedListNthFromEnd<Integer> nthFromEnd = new SinglyLinkedListNthFromEnd<>();
+    for (int i = 0; i < 50; i += 3) {
+      nthFromEnd.insertAtHead(i);
+    }
+    Assert.assertEquals(12, nthFromEnd.nthElementFromEnd(nthFromEnd, 5));
+  }
+
 }
