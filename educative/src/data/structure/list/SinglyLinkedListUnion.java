@@ -59,18 +59,14 @@ public class SinglyLinkedListUnion<T> {
     }
   }
 
-  private void unionList(SinglyLinkedListUnion<Integer> unionBeforeA,
-      SinglyLinkedListUnion<Integer> unionBeforeB) {
-
-    SinglyLinkedListUnion<T>.Node unionBeforeANode = (Node) unionBeforeA.headNode;
-
-    while (unionBeforeANode.nextNode != null) {
-      unionBeforeANode = unionBeforeANode.nextNode;
+  private void unionList(SinglyLinkedListUnion<T> listA, SinglyLinkedListUnion<T> listB) {
+    SinglyLinkedListUnion<T>.Node nodeA = listA.headNode;
+    while (nodeA.nextNode != null) {
+      nodeA = nodeA.nextNode;
     }
 
-    unionBeforeANode.nextNode = (Node) unionBeforeB.headNode;
-    unionBeforeA.removeDuplicateData();
-
+    nodeA.nextNode = listB.headNode;
+    listA.removeDuplicateData();
   }
 
   public String printList() {
@@ -86,25 +82,20 @@ public class SinglyLinkedListUnion<T> {
 
   @Test
   public void unionCase() {
-    SinglyLinkedListUnion<Integer> unionBeforeA = new SinglyLinkedListUnion<>();
-    SinglyLinkedListUnion<Integer> unionBeforeB = new SinglyLinkedListUnion<>();
+    SinglyLinkedListUnion<Integer> listA = new SinglyLinkedListUnion<>();
+    SinglyLinkedListUnion<Integer> listB = new SinglyLinkedListUnion<>();
 
-    unionBeforeA.insertNodeHead(30);
-    unionBeforeA.insertNodeHead(25);
-    unionBeforeA.insertNodeHead(20);
-    unionBeforeA.insertNodeHead(10);
-    unionBeforeA.insertNodeHead(4);
-    unionBeforeA.insertNodeHead(3);
+    for(int i=0; i<20; i+=2) {
+      listA.insertNodeHead(i);
+    }
 
-    unionBeforeB.insertNodeHead(500);
-    unionBeforeB.insertNodeHead(100);
-    unionBeforeB.insertNodeHead(30);
-    unionBeforeB.insertNodeHead(20);
-    unionBeforeB.insertNodeHead(40);
-    unionBeforeB.insertNodeHead(3);
+    for(int i=0; i<40; i+=4){
+      listB.insertNodeHead(i);
 
-    unionList(unionBeforeA, unionBeforeB);
-    Assert.assertEquals("RESULT : 3 4 10 20 25 30 40 100 500 ", unionBeforeA.printList());
+    }
+
+    unionList((SinglyLinkedListUnion<T>) listA, (SinglyLinkedListUnion<T>) listB);
+    Assert.assertEquals("RESULT : 3 4 10 20 25 30 40 100 500 ", listA.printList());
   }
 
 

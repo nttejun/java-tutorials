@@ -1,10 +1,7 @@
 package data.structure.list;
 
-import java.util.List;
-import java.util.Stack;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 public class SinglyLinkedListReverse<T> {
 
@@ -26,6 +23,7 @@ public class SinglyLinkedListReverse<T> {
     Node node = new Node();
     node.data = data;
     node.nextNode = headNode;
+
     headNode = node;
     size++;
   }
