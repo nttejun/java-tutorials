@@ -42,6 +42,7 @@ public class Queue<T> {
     back = (back + 1) % maxSize;
     array[back] = val;
     currentSize++;
+    printQueue();
   }
 
   public T dequeue(){
@@ -51,8 +52,24 @@ public class Queue<T> {
     T temp = array[front];
     front = (front + 1) % maxSize;
     currentSize--;
+    printQueue();
 
     return temp;
   }
 
+  private void printQueue() {
+    String res = "";
+    for(T i : array){
+      res += i + " ";
+    }
+    System.out.println(res);
+  }
+
+  public int getFront() {
+    return front;
+  }
+
+  public int getBack() {
+    return back;
+  }
 }
