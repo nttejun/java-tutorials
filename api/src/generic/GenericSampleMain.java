@@ -3,14 +3,13 @@ package generic;
 public class GenericSampleMain {
 
   public static void main(String[] args) {
-
     DiscountType<OuletDiscountType> ouletPriceType = new DiscountType<OuletDiscountType>(
         new OuletDiscountType(false, "1000", "2300"));
     DiscountType<EditDiscountType> editPriceType = new DiscountType<EditDiscountType>(
         new EditDiscountType(false, "1111"));
 
-    Shop<OutletShop> outletShop = new Shop<OutletShop>(new OutletShop("edit", 2, ouletPriceType));
-    Shop<EditShop> editShop = new Shop<EditShop>(new EditShop("outlet", 1, editPriceType));
+    Shop<OutletShop> outletShop = new Shop<OutletShop>(new OutletShop("outlet", 2, ouletPriceType));
+    Shop<EditShop> editShop = new Shop<EditShop>(new EditShop("edit", 1, editPriceType));
 
     if (outletShop.shopType instanceof OutletShop) {
       System.out.println("outletShop");
