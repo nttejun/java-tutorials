@@ -1,9 +1,9 @@
-package version.eight.ramda.greeting;
+package version.eight.rambda.greeting;
 
 public class EnglishGreeting implements Greeting {
 
   @Override
-  public void greeting() {
+  public void greet() {
     System.out.println("Hello");
   }
 }

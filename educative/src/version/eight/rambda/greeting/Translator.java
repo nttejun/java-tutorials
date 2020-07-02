@@ -1,9 +1,9 @@
-package version.eight.ramda.greeting;
+package version.eight.rambda.greeting;
 
 public class Translator {
 
   public void greeting(Greeting greeting) {
-    greeting.greeting();
+    greeting.greet();
   }
 
   public static void main(String[] args) {
