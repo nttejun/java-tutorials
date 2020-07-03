@@ -19,5 +19,8 @@ public class Translator {
     greeting(() -> {
       System.out.println("hello");
     });
+
+    // convert to one line
+    greeting(() -> System.out.println("Bonjour"));
   }
 }
