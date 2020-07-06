@@ -20,7 +20,6 @@ public class Translator {
       System.out.println("hello");
     });
 
-    // convert to one line
     greeting(() -> System.out.println("Bonjour"));
   }
 }
