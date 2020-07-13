@@ -1,6 +1,8 @@
 package version.eight.rambda.unary;
 
+import java.util.function.DoubleUnaryOperator;
 import java.util.function.IntUnaryOperator;
+import java.util.function.LongUnaryOperator;
 import java.util.function.UnaryOperator;
 
 class Unaray {
@@ -30,8 +32,18 @@ class Unaray {
     IntUnaryOperator intOperator = n -> n * n;
     int intOperatorResult = intOperator.applyAsInt(5);
     System.out.println(intOperatorResult);
+
     intOperatorResult = intOperator.applyAsInt(10);
     System.out.println(intOperatorResult);
+
+    DoubleUnaryOperator doubleUnaryOperator = (d) -> d * d;
+    double doubleUnaryOperatorResult = doubleUnaryOperator.applyAsDouble(5.5);
+    System.out.println(doubleUnaryOperatorResult);
+
+    LongUnaryOperator longUnaryOperator = (l) -> l * l;
+    long longUnaryOperatorResult = longUnaryOperator.applyAsLong((long) 10.5);
+    System.out.println(longUnaryOperatorResult);
+
   }
 }
 
