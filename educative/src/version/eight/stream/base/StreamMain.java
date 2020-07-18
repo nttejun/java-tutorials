@@ -1,4 +1,4 @@
-package version.eight.stream;
+package version.eight.stream.base;
 
 import java.util.ArrayList;
 import java.util.List;
