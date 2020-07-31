@@ -2,6 +2,7 @@ package version.eight.stream.collector;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class CollectorFeaturesMain {
     Set<String> names = students.stream()
         .map(n -> n.getName())
         .collect(Collectors.toSet());
-    System.out.println("set " + names);
+    System.out.println("to set " + names);
   }
 
   @Test
@@ -78,13 +79,26 @@ public class CollectorFeaturesMain {
     Map<String, Integer> names = duplicateStudents.stream()
         .map(n -> n.getName())
         .collect(Collectors.toMap(s -> s, s -> s.length(), (s1, s2) -> s1));
-    System.out.println(names);
+    System.out.println("binary operation " + names);
+  }
+
+  @Test
+  public void testCollectorsToMapConvertToHashMap() {
+    Map<String, Integer> names = students.stream()
+        .map(n -> n.getName())
+        .collect(Collectors.toMap(s -> s, s -> s.length(), (s1, s2) -> s1, HashMap::new));
+    System.out.println("hash map " + names);
   }
 
   @Test
   public void testCollectorsCollectingAndThen() {
+    List<String> list = new ArrayList<>();
+    list.add("A");
+    list.add("B");
+    list.add("C");
+    list.add("D");
 
-    Object unmodifiableList = students.stream()
+    List<String> unmodifiableList = list.stream()
         .collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
 
     System.out.println(unmodifiableList);
