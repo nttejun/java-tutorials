@@ -1,3 +1,4 @@
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -5,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 import java.time.Duration;
 import java.util.function.Supplier;
@@ -89,6 +92,19 @@ public class AppTest {
     assertTimeoutPreemptively(Duration.ofMillis(10), () -> {
       new Study(10);
       Thread.sleep(300);
+    });
+  }
+
+  // 특정 환경에서만 테스트 실행하기
+  // 사전설정 vim ~/.zshrc > export TEST_ENV=LOCAL
+  @Test
+  void create_new_study_env() {
+    String test_env = System.getenv("TEST_ENV");
+    assumeTrue("LOCAL".equalsIgnoreCase(test_env));
+    assumingThat("LOCAL".equalsIgnoreCase(test_env), () -> {
+      System.out.println("local");
+      Study actual = new Study(10);
+      assertThat(actual.getLimit()).isGreaterThan(0);
     });
   }
 
