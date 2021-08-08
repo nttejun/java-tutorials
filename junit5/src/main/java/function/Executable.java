@@ -9,6 +9,5 @@ import org.apiguardian.api.API.Status;
     since = "5.0"
 )
 public interface Executable {
-
     void execute() throws Throwable;
 }
