@@ -1,3 +1,5 @@
+package study;
+
 public class Study {
 
   private StudyStatus status = StudyStatus.DRAFT;
