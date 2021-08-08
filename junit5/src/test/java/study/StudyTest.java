@@ -14,8 +14,11 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 import java.time.Duration;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class StudyTest {
 
   private static Study study = new Study(10);
@@ -52,7 +55,7 @@ class StudyTest {
    * 기능 : supplier 인자를 받지 않고 Type T 객체를 반환하는 함수형 인터페이스
    */
   @Test
-  void responseTypeT() {
+  void supplierResponseTypeT() {
     assertEquals(StudyStatus.DRAFT, study.getStatus(), new Supplier<String>() {
       @Override
       public String get() {
@@ -106,9 +109,20 @@ class StudyTest {
   @Test
   void create_new_study_env() {
     String test_env = System.getenv("TEST_ENV");
-    assumeTrue("LOCAL".equalsIgnoreCase(test_env));
-    assumingThat("LOCAL".equalsIgnoreCase(test_env), () -> {
+    assumeTrue("local".equalsIgnoreCase(test_env));
+    assumingThat("local".equalsIgnoreCase(test_env), () -> {
       System.out.println("local");
+      Study actual = new Study(10);
+      assertThat(actual.getLimit()).isGreaterThan(0);
+    });
+  }
+
+  @Test
+  void create_new_study_env_add() {
+    String test_env = System.getenv("TEST");
+    assumeTrue("test".equalsIgnoreCase(test_env));
+    assumingThat("test".equalsIgnoreCase(test_env), () -> {
+      System.out.println("test");
       Study actual = new Study(10);
       assertThat(actual.getLimit()).isGreaterThan(0);
     });
