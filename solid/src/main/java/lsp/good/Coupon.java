@@ -2,15 +2,15 @@ package lsp.good;
 
 public class Coupon {
 
-  private int discountRate;
+  private double discountRate;
 
-  public Coupon(int discountRate) {
+  public Coupon(double discountRate) {
     this.discountRate = discountRate;
   }
 
-  public int calculateDiscountAmount(Item item) {
+  public double calculateDiscountAmount(Item item) {
     if (!item.isDiscountAvailable()) {
-      return 0;
+      return item.getPrice();
     }
 
     return item.getPrice() * discountRate;

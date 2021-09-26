@@ -3,10 +3,15 @@ package lsp.good;
 public class Item {
 
   private String item;
-  private int price;
+  private double price;
 
-  public int getPrice() {
-    return 0;
+  public Item(String item, double price) {
+    this.item = item;
+    this.price = price;
+  }
+
+  public double getPrice() {
+    return price;
   }
 
   /***
