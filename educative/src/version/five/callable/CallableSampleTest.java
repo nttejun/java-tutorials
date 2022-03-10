@@ -18,7 +18,6 @@ class CallableSampleTest {
         int count = 0;
 
         CallableSample callableSample = new CallableSample(entity, count);
-
         Future<String> future = executor.submit(callableSample);
 
         try {
