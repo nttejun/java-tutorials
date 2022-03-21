@@ -1,6 +1,6 @@
 package state;
 
 public interface State {
-    public void increaseCoin(int coin);
-    public void select(int productId);
+    public void increaseCoin(int coin, VendingMachine vm);
+    public void select(int productId, VendingMachine vm);
 }

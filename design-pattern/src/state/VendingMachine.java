@@ -1,50 +1,36 @@
 package state;
 
 public class VendingMachine {
-    public static enum State {NOCOIN, SELECTABLE, SOLDOUT}
 
-    private State state = State.NOCOIN;
+    private State state;
+
+    public VendingMachine() {
+        state = new NoCoinState();
+    }
 
     public void insertCoin(int coin) {
-        switch (state) {
-            case NOCOIN:
-                increaseCoin(coin);
-                state = State.SELECTABLE;
-                break;
-            case SELECTABLE:
-                increaseCoin(coin);
-            case SOLDOUT:
-                returnCoin();
-        }
+        state.increaseCoin(coin, this);
     }
 
-    private void select(int productId) {
-        switch (state) {
-            case NOCOIN:
-                break;
-            case SELECTABLE:
-                provideProduct(productId);
-                decreaseCoin();
-                if (hasNoCoin())
-                    state = State.NOCOIN;
-            case SOLDOUT:
-                returnCoin();
-        }
+    public void select(int productId) {
+        state.select(productId, this);
     }
 
-    private void returnCoin() {
+    public void changeState(State newState) {
+        this.state = newState;
     }
 
-    private boolean hasNoCoin() {
+    public boolean hasNoCoin() {
         return true;
     }
 
-    private void decreaseCoin() {
+    public void decreaseCoin() {
     }
 
-    private void provideProduct(int productId) {
+    public void provideProduct(int productId) {
     }
 
-    private void increaseCoin(int coin) {
+    public void increaseCoin(int coin) {
     }
+
 }
