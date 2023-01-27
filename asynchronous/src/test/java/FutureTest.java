@@ -25,26 +25,35 @@ class FutureTest {
             return sum;
         });
 
+        Future<Integer> future4 = executor.submit(() -> {
+            Integer sum = sum(4);
+            return sum;
+        });
+
         System.out.println(LocalTime.now() + " Waiting the task done");
         Integer result1 = future1.get();
         Integer result2 = future2.get();
         Integer result3 = future3.get();
+        Integer result4 = future4.get();
         System.out.println(LocalTime.now() + " Result 1 : " + result1);
         System.out.println(LocalTime.now() + " Result 2 : " + result2);
         System.out.println(LocalTime.now() + " Result 3 : " + result3);
+        System.out.println(LocalTime.now() + " Result 4 : " + result4);
 
         executor.shutdown();
         checkJobStatus(executor);
 
         /*** 실행결과
-         09:15:25.186 Waiting the task done
-         09:15:25.186 1 Starting runnable
-         09:15:25.186 3 Starting runnable
-         09:15:25.186 2 Starting runnable
-         09:15:28.203 Result 1 : 2
-         09:15:28.203 Result 2 : 4
-         09:15:28.203 Result 3 : 6
-         09:15:28.206 All jobs are terminated
+         09:24:26.577 Waiting the task done
+         09:24:26.577 3 Starting runnable
+         09:24:26.577 1 Starting runnable
+         09:24:26.577 2 Starting runnable
+         09:24:29.589 4 Starting runnable
+         09:24:32.595 Result 1 : 2
+         09:24:32.596 Result 2 : 4
+         09:24:32.596 Result 3 : 6
+         09:24:32.597 Result 4 : 8
+         09:24:32.598 All jobs are terminated
          */
     }
 
