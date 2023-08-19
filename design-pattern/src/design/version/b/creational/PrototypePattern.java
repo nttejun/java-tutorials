@@ -51,8 +51,6 @@ public class PrototypePattern {
     }
   }
 
-  다
-
   public void main() {
     // 객체의 상태를 복사해서 새로운 객체를 만들 수 있다
     Prototype knightPrototype = new Knight("Sir Lancelot");
