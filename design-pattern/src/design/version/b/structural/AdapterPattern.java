@@ -43,7 +43,8 @@ public class AdapterPattern {
     }
   }
 
-  // Adapter
+  // 서로 다른 인터페이스를 만들어 놓고, 어댑터 클래스를 생성한다.
+  // 이 곳에서 서로 다른 인터페이스를 모두 사용한
   class MediaAdapter implements MediaPlayer {
 
     private AdvancedMediaPlayer advancedMediaPlayer;
